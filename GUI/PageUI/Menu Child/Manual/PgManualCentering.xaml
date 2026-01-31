@@ -1,0 +1,411 @@
+﻿<Page x:Class="GUI.PgManualCentering"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GUI"
+      mc:Ignorable="d"
+      xmlns:PLC="clr-namespace:DevicePLC;assembly=DevicePLC"
+      d:DesignHeight="768" d:DesignWidth="1024"
+      Title="PgManualCentering">
+
+    <Grid Background="#dddddd">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="6*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Background="DarkOrange">
+                    <Label Grid.Column="0" Foreground="#EEEEEE" FontSize="20" FontWeight="Bold"
+                        Margin="20,0,0,0" VerticalContentAlignment="Top">
+                        Manual Centering
+                    </Label>
+                </Grid>
+                <Grid Grid.Row="1">
+                    
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                        FontSize="25"
+                        Style="{StaticResource LabelHeader}"
+                        Background="#FF74A8A1"
+                        FontFamily="Elephant">MENU</Label>
+                <Grid Grid.Row="1">
+                    <local:ButtonMechanical Foreground="Black" Background="White" DeviceButton="PAGE_MENU_MANUAL_PICKER_TRANSFER">
+                        <local:ButtonMechanical.Content>Picker Transfer</local:ButtonMechanical.Content>
+
+                    </local:ButtonMechanical>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <local:ButtonMechanical Foreground="Black" Background="White" DeviceButton="PAGE_MENU_MANUAL_BUFFER_PICKER_HANDLE">
+                        <local:ButtonMechanical.Content>Buffer/Picker Handle</local:ButtonMechanical.Content>
+                    </local:ButtonMechanical>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <local:ButtonMechanical Foreground="Black" Background="White" DeviceButton="PAGE_MENU_MANUAL_MOTOR">
+                        <local:ButtonMechanical.Content>Motor</local:ButtonMechanical.Content>
+                    </local:ButtonMechanical>
+                </Grid>
+                <Grid Grid.Row="4">
+                    <local:ButtonMechanical Foreground="Black" Background="#FF70E6E6" DeviceButton="PAGE_MENU_MANUAL_CENTERING">
+                        <local:ButtonMechanical.Content>Centering</local:ButtonMechanical.Content>
+                        <local:ButtonMechanical.Style>
+                            <Style TargetType="local:ButtonMechanical">
+                                <Setter Property="RectangleFill" Value="DarkRed" />
+                            </Style>
+                        </local:ButtonMechanical.Style>
+                    </local:ButtonMechanical>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="#FF65CDBA"></Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.5*"></RowDefinition>
+                            <RowDefinition Height="0.4*"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0" Background="#FFD1E8E4" Margin="2">
+                            <TextBlock Grid.Row="0" Grid.Column="0" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center">Centering 1</TextBlock>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="1" Background="#FFD1E8E4" Margin="2">
+                            <TextBlock Grid.Row="0" Grid.Column="0" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center">Centering 2</TextBlock>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2" Background="#FFD1E8E4" Margin="2">
+                            <TextBlock Grid.Row="0" Grid.Column="0" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center">Centering 3</TextBlock>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3" Background="#FFD1E8E4" Margin="2">
+                            <TextBlock Grid.Row="0" Grid.Column="0" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center">Centering 4</TextBlock>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="0" Margin="2">
+                            <PLC:RectangleLamp
+                    IsTabItem="False"
+                    DeviceLamp="M" AddressLamp="3372"
+                    Background="LightGray"
+                    BackgroundLampOFF="LightGray"
+                    BackgroundLampON="Red">
+                            </PLC:RectangleLamp>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="1" Margin="2">
+                            <PLC:RectangleLamp
+                    IsTabItem="False"
+                    DeviceLamp="M" AddressLamp="3373"
+                    Background="LightGray"
+                    BackgroundLampOFF="LightGray"
+                    BackgroundLampON="Red">
+                            </PLC:RectangleLamp>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="2" Margin="2">
+                            <PLC:RectangleLamp
+                    IsTabItem="False"
+                    DeviceLamp="M" AddressLamp="3374"
+                    Background="LightGray"
+                    BackgroundLampOFF="LightGray"
+                    BackgroundLampON="Red">
+                            </PLC:RectangleLamp>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="3" Margin="2">
+                            <PLC:RectangleLamp
+                    IsTabItem="False"
+                    DeviceLamp="M" AddressLamp="3375"
+                    Background="LightGray"
+                    BackgroundLampOFF="LightGray"
+                    BackgroundLampON="Red">
+                            </PLC:RectangleLamp>
+                        </Grid>
+
+                        <Grid Grid.Row="2" Grid.Column="0" Margin="2">
+                            <PLC:PLCButton
+                    Action="Set"
+                    IsTabItem="False"
+                    Content="Vacuum"
+                    TextON="Vacuum"
+                    TextOFF="Vacuum"
+                    FontSize="14"
+                    DeviceLamp="M" AddressLamp="3468"
+                    DeviceWrite="M" AddressWrite="210"
+                    UseLampCodition="True"
+                    Background="DarkCyan"
+                    BackgroundLampOFF="DarkCyan"
+                    BackgroundLampON="OrangeRed">
+                            </PLC:PLCButton>
+                        </Grid>
+                        <Grid Grid.Row="2" Grid.Column="1" Margin="2">
+                            <PLC:PLCButton
+                    Action="Set"
+                    IsTabItem="False"
+                    Content="Vacuum"
+                    TextON="Vacuum"
+                    TextOFF="Vacuum"
+                    FontSize="14"
+                    DeviceLamp="M" AddressLamp="3469"
+                    DeviceWrite="M" AddressWrite="211"
+                    UseLampCodition="True"
+                    Background="DarkCyan"
+                    BackgroundLampOFF="DarkCyan"
+                    BackgroundLampON="OrangeRed">
+                            </PLC:PLCButton>
+                        </Grid>
+                        <Grid Grid.Row="2" Grid.Column="2" Margin="2">
+                            <PLC:PLCButton
+                    Action="Set"
+                    IsTabItem="False"
+                    Content="Vacuum"
+                    TextON="Vacuum"
+                    TextOFF="Vacuum"
+                    FontSize="14"
+                    DeviceLamp="M" AddressLamp="3470"
+                    DeviceWrite="M" AddressWrite="212"
+                    UseLampCodition="True"
+                    Background="DarkCyan"
+                    BackgroundLampOFF="DarkCyan"
+                    BackgroundLampON="OrangeRed">
+                            </PLC:PLCButton>
+                        </Grid>
+                        <Grid Grid.Row="2" Grid.Column="3" Margin="2">
+                            <PLC:PLCButton
+                    Action="Set"
+                    Content="Vacuum"
+                    IsTabItem="False"
+                    TextON="Vacuum"
+                    TextOFF="Vacuum"
+                    FontSize="14"
+                    DeviceLamp="M" AddressLamp="3471"
+                    DeviceWrite="M" AddressWrite="213"
+                    UseLampCodition="True"
+                    Background="DarkCyan"
+                    BackgroundLampOFF="DarkCyan"
+                    BackgroundLampON="OrangeRed">
+                            </PLC:PLCButton>
+                        </Grid>
+
+                        <Grid Grid.Row="3" Grid.Column="0" Margin="2">
+                            <PLC:PLCButton
+                    Action="Set"
+                    Content="Blower"
+                    IsTabItem="False"
+                    TextON="Blower"
+                    TextOFF="Blower"
+                    FontSize="14"
+                    DeviceLamp="M" AddressLamp="0"
+                    DeviceWrite="M" AddressWrite="0"
+                    UseLampCodition="True"
+                    Background="DarkCyan"
+                    BackgroundLampOFF="DarkCyan"
+                    BackgroundLampON="OrangeRed">
+                            </PLC:PLCButton>
+                        </Grid>
+                        <Grid Grid.Row="3" Grid.Column="1" Margin="2">
+                            <PLC:PLCButton
+                    Action="Set"
+                    Content="Blower"
+                    TextON="Blower"
+                    IsTabItem="False"
+                    TextOFF="Blower"
+                    FontSize="14"
+                    DeviceLamp="M" AddressLamp="0"
+                    DeviceWrite="M" AddressWrite="0"
+                    UseLampCodition="True"
+                    Background="DarkCyan"
+                    BackgroundLampOFF="DarkCyan"
+                    BackgroundLampON="OrangeRed">
+                            </PLC:PLCButton>
+                        </Grid>
+                        <Grid Grid.Row="3" Grid.Column="2" Margin="2">
+                            <PLC:PLCButton
+                    Action="Set"
+                    Content="Blower"
+                    IsTabItem="False"
+                    TextON="Blower"
+                    TextOFF="Blower"
+                    FontSize="14"
+                    DeviceLamp="M" AddressLamp="0"
+                    DeviceWrite="M" AddressWrite="0"
+                    UseLampCodition="True"
+                    Background="DarkCyan"
+                    BackgroundLampOFF="DarkCyan"
+                    BackgroundLampON="OrangeRed">
+                            </PLC:PLCButton>
+                        </Grid>
+                        <Grid Grid.Row="3" Grid.Column="3" Margin="2">
+                            <PLC:PLCButton
+                    Action="Set"
+                    Content="Blower"
+                    IsTabItem="False"
+                    TextON="Blower"
+                    TextOFF="Blower"
+                    FontSize="14"
+                    DeviceLamp="M" AddressLamp="0"
+                    DeviceWrite="M" AddressWrite="0"
+                    UseLampCodition="True"
+                    Background="DarkCyan"
+                    BackgroundLampOFF="DarkCyan"
+                    BackgroundLampON="OrangeRed">
+                            </PLC:PLCButton>
+                        </Grid>
+
+                        <Grid Grid.Row="4" Grid.Column="0" Margin="2">
+                            <PLC:PLCButton
+                    Action="Set"
+                    Content="OFF"
+                    IsTabItem="False"
+                    TextON="OFF"
+                    TextOFF="OFF"
+                    FontSize="14"
+                    DeviceLamp="M" AddressLamp="3468"
+                    DeviceWrite="M" AddressWrite="238"
+                    UseLampCodition="True"
+                    Background="OrangeRed"
+                    BackgroundLampOFF="OrangeRed"
+                    BackgroundLampON="DarkCyan">
+                            </PLC:PLCButton>
+                        </Grid>
+                        <Grid Grid.Row="4" Grid.Column="1" Margin="2">
+                            <PLC:PLCButton
+                    Action="Set"
+                    Content="OFF"
+                    IsTabItem="False"
+                    TextON="OFF"
+                    TextOFF="OFF"
+                    FontSize="14"
+                    DeviceLamp="M" AddressLamp="3469"
+                    DeviceWrite="M" AddressWrite="239"
+                    UseLampCodition="True"
+                    Background="OrangeRed"
+                    BackgroundLampOFF="OrangeRed"
+                    BackgroundLampON="DarkCyan">
+                            </PLC:PLCButton>
+                        </Grid>
+                        <Grid Grid.Row="4" Grid.Column="2" Margin="2">
+                            <PLC:PLCButton
+                    Action="Set"
+                    Content="OFF"
+                    TextON="OFF"
+                    IsTabItem="False"
+                    TextOFF="OFF"
+                    FontSize="14"
+                    DeviceLamp="M" AddressLamp="3470"
+                    DeviceWrite="M" AddressWrite="240"
+                    UseLampCodition="True"
+                    Background="OrangeRed"
+                    BackgroundLampOFF="OrangeRed"
+                    BackgroundLampON="DarkCyan">
+                            </PLC:PLCButton>
+                        </Grid>
+                        <Grid Grid.Row="4" Grid.Column="3" Margin="2">
+                            <PLC:PLCButton
+                    Action="Set"
+                    Content="OFF"
+                    TextON="OFF"
+                    IsTabItem="False"
+                    TextOFF="OFF"
+                    FontSize="14"
+                    DeviceLamp="M" AddressLamp="3471"
+                    DeviceWrite="M" AddressWrite="241"
+                    UseLampCodition="True"
+                    Background="OrangeRed"
+                    BackgroundLampOFF="OrangeRed"
+                    BackgroundLampON="DarkCyan">
+                            </PLC:PLCButton>
+                        </Grid>
+
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Margin="3">
+                            <PLC:PLCButton
+                    Action="Set"
+                    Content="ALL VACUUM"
+                    IsTabItem="False"
+                    TextON="ALL VACUUM"
+                    TextOFF="ALL VACUUM"
+                    DeviceLamp="M" AddressLamp="261"
+                    DeviceWrite="M" AddressWrite="261"
+                    UseLampCodition="True"
+                    Background="DarkCyan"
+                    BackgroundLampOFF="DarkCyan"
+                    BackgroundLampON="OrangeRed">
+                            </PLC:PLCButton>
+                        </Grid>
+                        <Grid Grid.Column="1" Margin="3">
+                            <PLC:PLCButton
+                    Action="Set"
+                    Content="ALL BLOWER"
+                    IsTabItem="False"
+                    TextON="ALL BLOWER"
+                    TextOFF="ALL BLOWER"
+                    DeviceLamp="M" AddressLamp="0"
+                    DeviceWrite="M" AddressWrite="0"
+                    UseLampCodition="True"
+                    Background="DarkCyan"
+                    BackgroundLampOFF="DarkCyan"
+                    BackgroundLampON="OrangeRed">
+                            </PLC:PLCButton>
+                        </Grid>
+                        <Grid Grid.Column="2" Margin="3">
+                            <PLC:PLCButton
+                    Action="Set"
+                    Content="ALL OFF"
+                    TextON="ALL OFF"
+                    TextOFF="ALL OFF"
+                    IsTabItem="False"
+                    DeviceLamp="M" AddressLamp="262"
+                    DeviceWrite="M" AddressWrite="262"
+                    UseLampCodition="True"
+                    Background="DarkCyan"
+                    BackgroundLampOFF="DarkCyan"
+                    BackgroundLampON="OrangeRed">
+                            </PLC:PLCButton>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

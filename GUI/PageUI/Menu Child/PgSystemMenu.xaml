@@ -1,0 +1,455 @@
+﻿<Page x:Class="GUI.PgSystemMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GUI"
+      xmlns:PLC="clr-namespace:DevicePLC;assembly=DevicePLC"
+      mc:Ignorable="d" 
+      d:DesignHeight="768" d:DesignWidth="1024"
+      Title="PgSystemMenu">
+
+    <Grid Background="#dddddd">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.Resources>
+            <Style x:Key="lableName" TargetType="Label">
+                <Setter Property="FontSize" Value="25"></Setter>
+                <Setter Property="Background" Value="White"></Setter>
+                <Setter Property="FontFamily" Value="Bahnschrift"></Setter>
+                <Setter Property="HorizontalContentAlignment" Value="Left"></Setter>
+                <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+                <Setter Property="Foreground" Value="Black"></Setter>
+                <Setter Property="Margin" Value="2"></Setter>
+            </Style>
+            <Style x:Key="lableNo" TargetType="Label">
+                <Setter Property="FontSize" Value="25"></Setter>
+                <Setter Property="Background" Value="White"></Setter>
+                <Setter Property="FontFamily" Value="Bahnschrift"></Setter>
+                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+                <Setter Property="Foreground" Value="Black"></Setter>
+                <Setter Property="Margin" Value="2"></Setter>
+            </Style>
+            <Style x:Key="lableType" TargetType="Label">
+                <Setter Property="FontSize" Value="25"></Setter>
+                <Setter Property="Background" Value="White"></Setter>
+                <Setter Property="FontFamily" Value="Bahnschrift"></Setter>
+                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+                <Setter Property="Foreground" Value="Black"></Setter>
+                <Setter Property="Margin" Value="2"></Setter>
+            </Style>
+            <Style x:Key="lableUnit" TargetType="Label">
+                <Setter Property="FontSize" Value="25"></Setter>
+                <Setter Property="Background" Value="White"></Setter>
+                <Setter Property="FontFamily" Value="Bahnschrift"></Setter>
+                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+                <Setter Property="Foreground" Value="Black"></Setter>
+                <Setter Property="Margin" Value="2"></Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="6*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="DarkOrange">
+                <Label Grid.Column="0" Foreground="#EEEEEE" FontSize="20" FontWeight="Bold"
+        Margin="20,0,0,0" VerticalContentAlignment="Top">
+                    Run Mode Setting
+                </Label>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Grid.Column="0" Margin="3">
+                    <GroupBox Header="Pass Vacuum" FontSize="20" BorderBrush="Blue" BorderThickness="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <PLC:PLCButton
+                                    Margin="12"
+                                    IsTabItem="False"
+                                    Action="Set"
+                                    DeviceWrite="M" AddressWrite="612"
+                                    UseLampCodition="True"
+                                    DeviceLamp="M" AddressLamp="612"
+                                    Background="LightGray"
+                                    BackgroundLampOFF="LightGray"
+                                    BackgroundLampON="LightGreen"
+                                    BorderBrush="Blue"
+                                    BorderThickness="2"
+                                    TextOFF="USE"
+                                    TextON="USE"
+                                    Content="USE"
+                                    FontWeight="Bold"
+                                    Foreground="Black"
+                                    FontSize="20">
+                                </PLC:PLCButton>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <PLC:PLCButton
+                                    Margin="12"
+                                    IsTabItem="False"
+                                    Action="Reset"
+                                    DeviceWrite="M" AddressWrite="612"
+                                    UseLampCodition="True"
+                                    DeviceLamp="M" AddressLamp="612"
+                                    Background="LightGreen"
+                                    BackgroundLampOFF="LightGreen"
+                                    BackgroundLampON="Gray"
+                                                                        BorderBrush="Blue"
+                                    BorderThickness="2"
+                                    TextOFF="NOT USE"
+                                    TextON="NOT USE"
+                                    Content="NOT USE"
+                                    FontWeight="Bold"
+                                    Foreground="Black"
+                                    FontSize="20">
+                                </PLC:PLCButton>
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="1" Margin="3">
+                    <GroupBox Header="Pass Laser" FontSize="20" BorderBrush="Blue" BorderThickness="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <PLC:PLCButton
+                    Margin="12"
+                    IsTabItem="False"
+                    Action="Set"
+                    DeviceWrite="M" AddressWrite="613"
+                    UseLampCodition="True"
+                    DeviceLamp="M" AddressLamp="613"
+                    Background="LightGray"
+                    BackgroundLampOFF="LightGray"
+                    BackgroundLampON="LightGreen"
+                                                                        BorderBrush="Blue"
+                                    BorderThickness="2"
+                    TextOFF="USE"
+                    TextON="USE"
+                    Content="USE"
+                    FontWeight="Bold"
+                    Foreground="Black"
+                    FontSize="20">
+                                </PLC:PLCButton>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <PLC:PLCButton
+                    Margin="12"
+                    IsTabItem="False"
+                    Action="Reset"
+                    DeviceWrite="M" AddressWrite="613"
+                    UseLampCodition="True"
+                    DeviceLamp="M" AddressLamp="613"
+                    Background="LightGreen"
+                    BackgroundLampOFF="LightGreen"
+                    BackgroundLampON="Gray"
+                                                                        BorderBrush="Blue"
+                                    BorderThickness="2"
+                    TextOFF="NOT USE"
+                    TextON="NOT USE"
+                    Content="NOT USE"
+                    FontWeight="Bold"
+                    Foreground="Black"
+                    FontSize="20">
+                                </PLC:PLCButton>
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="0" Margin="3">
+                    <GroupBox Header="Door Safe Mode" FontSize="20" BorderBrush="Blue" BorderThickness="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <PLC:PLCButton
+                                    Margin="12"
+                                    IsTabItem="False"
+                                    Action="Set"
+                                    DeviceWrite="M" AddressWrite="1200"
+                                    UseLampCodition="True"
+                                    DeviceLamp="M" AddressLamp="1200"
+                                    Background="LightGray"
+                                    BackgroundLampOFF="LightGray"
+                                    BackgroundLampON="LightGreen"
+                                    BorderBrush="Blue"
+                                    BorderThickness="2"
+                                    TextOFF="USE"
+                                    TextON="USE"
+                                    Content="USE"
+                                    FontWeight="Bold"
+                                    Foreground="Black"
+                                    FontSize="20">
+                                </PLC:PLCButton>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <PLC:PLCButton
+                                    Margin="12"
+                                    IsTabItem="False"
+                                    Action="Reset"
+                                    DeviceWrite="M" AddressWrite="1200"
+                                    UseLampCodition="True"
+                                    DeviceLamp="M" AddressLamp="1200"
+                                    Background="LightGreen"
+                                    BackgroundLampOFF="LightGreen"
+                                    BackgroundLampON="Gray"
+                                    BorderBrush="Blue"
+                                    BorderThickness="2"
+                                    TextOFF="NOT USE"
+                                    TextON="NOT USE"
+                                    Content="NOT USE"
+                                    FontWeight="Bold"
+                                    Foreground="Black"
+                                    FontSize="20">
+                                </PLC:PLCButton>
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="1" Margin="3">
+                    <GroupBox Header="Buzzer" FontSize="20" BorderBrush="Blue" BorderThickness="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <PLC:PLCButton
+                    Margin="12"
+                    IsTabItem="False"
+                    Action="Set"
+                    DeviceWrite="M" AddressWrite="1202"
+                    UseLampCodition="True"
+                    DeviceLamp="M" AddressLamp="1202"
+                    Background="LightGray"
+                    BackgroundLampOFF="LightGray"
+                    BackgroundLampON="LightGreen"
+                    BorderBrush="Blue"
+                    BorderThickness="2"
+                    TextOFF="USE"
+                    TextON="USE"
+                    Content="USE"
+                    FontWeight="Bold"
+                    Foreground="Black"
+                    FontSize="20">
+                                </PLC:PLCButton>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <PLC:PLCButton
+                    Margin="12"
+                    IsTabItem="False"
+                    Action="Reset"
+                    DeviceWrite="M" AddressWrite="1202"
+                    UseLampCodition="True"
+                    DeviceLamp="M" AddressLamp="1202"
+                    Background="LightGreen"
+                    BackgroundLampOFF="LightGreen"
+                    BackgroundLampON="Gray"
+                    BorderBrush="Blue"
+                    BorderThickness="2"
+                    TextOFF="NOT USE"
+                    TextON="NOT USE"
+                    Content="NOT USE"
+                    FontWeight="Bold"
+                    Foreground="Black"
+                    FontSize="20">
+                                </PLC:PLCButton>
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+                <Grid Grid.Row="2" Grid.Column="0" Margin="3">
+                    <GroupBox Header="Dryer Run" FontSize="20" BorderBrush="Blue" BorderThickness="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <PLC:PLCButton
+    Margin="12"
+    IsTabItem="False"
+    Action="Set"
+    DeviceWrite="M" AddressWrite="1201"
+    UseLampCodition="True"
+    DeviceLamp="M" AddressLamp="1201"
+    Background="LightGray"
+    BackgroundLampOFF="LightGray"
+    BackgroundLampON="LightGreen"
+    BorderBrush="Blue"
+    BorderThickness="2"
+    TextOFF="USE"
+    TextON="USE"
+    Content="USE"
+    FontWeight="Bold"
+    Foreground="Black"
+    FontSize="20">
+                                </PLC:PLCButton>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <PLC:PLCButton
+    Margin="12"
+    IsTabItem="False"
+    Action="Reset"
+    DeviceWrite="M" AddressWrite="1201"
+    UseLampCodition="True"
+    DeviceLamp="M" AddressLamp="1201"
+    Background="LightGreen"
+    BackgroundLampOFF="LightGreen"
+    BorderBrush="Blue"
+    BorderThickness="2"
+    BackgroundLampON="Gray"
+    TextOFF="NOT USE"
+    TextON="NOT USE"
+    Content="NOT USE"
+    FontWeight="Bold"
+    Foreground="Black"
+    FontSize="20">
+                                </PLC:PLCButton>
+                            </Grid>
+                            
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+                <Grid Grid.Row="2" Grid.Column="1">
+                    <GroupBox Header="MES ONLINE" FontSize="20" BorderBrush="Blue" BorderThickness="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Button x:Name="btAOIOnline" BorderBrush="Blue" BorderThickness="2" Margin="12" Background="LightGray" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontWeight="Bold">USE</Button>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <Button x:Name="btAOIOffline" BorderBrush="Blue" BorderThickness="2" Margin="12" Background="LightGray" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontWeight="Bold">NOT USE</Button>
+                            </Grid>
+
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+                <Grid Grid.Row="3" Grid.Column="1">
+                    <GroupBox Header="Use Send Mes" FontSize="20" BorderBrush="Blue" BorderThickness="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Button x:Name="btUseE011" BorderBrush="Blue" BorderThickness="2" Margin="12" Background="LightGray" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontWeight="Bold">E011</Button>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <Button x:Name="btUseE021" BorderBrush="Blue" BorderThickness="2" Margin="12" Background="LightGray" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontWeight="Bold">E021</Button>
+                            </Grid>
+
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+                <Grid Grid.Row="3" Grid.Column="0" Margin="3">
+                    <GroupBox Header="PASS SMEMA" FontSize="20" BorderBrush="Blue" BorderThickness="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <PLC:PLCButton
+    Margin="12"
+    IsTabItem="False"
+    Action="Set"
+    DeviceWrite="M" AddressWrite="615"
+    UseLampCodition="True"
+    DeviceLamp="M" AddressLamp="615"
+    Background="LightGray"
+    BackgroundLampOFF="LightGray"
+    BackgroundLampON="LightGreen"
+    BorderBrush="Blue"
+    BorderThickness="2"
+    TextOFF="USE"
+    TextON="USE"
+    Content="USE"
+    FontWeight="Bold"
+    Foreground="Black"
+    FontSize="20">
+                                </PLC:PLCButton>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <PLC:PLCButton
+    Margin="12"
+    IsTabItem="False"
+    Action="Reset"
+    DeviceWrite="M" AddressWrite="615"
+    UseLampCodition="True"
+    DeviceLamp="M" AddressLamp="615"
+    Background="LightGreen"
+    BackgroundLampOFF="LightGreen"
+    BorderBrush="Blue"
+    BorderThickness="2"
+    BackgroundLampON="Gray"
+    TextOFF="NOT USE"
+    TextON="NOT USE"
+    Content="NOT USE"
+    FontWeight="Bold"
+    Foreground="Black"
+    FontSize="20">
+                                </PLC:PLCButton>
+                            </Grid>
+
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+                <Grid Grid.Row="4">
+                    <Button x:Name="btSelectDataAOI" Margin="30" Background="Bisque" FontSize="16">Select Data Offline AOI</Button>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1" Background="LightGray">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="3*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <local:ButtonMechanical Background="#FF70E6E6" DeviceButton="PAGE_MENU_SYSTEM">
+                    <local:ButtonMechanical.Content>Run Mode</local:ButtonMechanical.Content>
+                    <local:ButtonMechanical.Style>
+                        <Style TargetType="local:ButtonMechanical">
+                            <Setter Property="RectangleFill" Value="DarkRed" />
+                        </Style>
+                    </local:ButtonMechanical.Style>
+                </local:ButtonMechanical>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

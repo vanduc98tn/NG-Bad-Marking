@@ -1,0 +1,253 @@
+﻿<Page x:Class="GUI.PgMechanicalDelayTime"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GUI"
+      xmlns:device="clr-namespace:DevicePLC;assembly=DevicePLC"
+      mc:Ignorable="d" 
+      d:DesignHeight="768" d:DesignWidth="1024"
+      Title="PgMechanicalMenu">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FFB3FBFB" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.Resources>
+            <Style x:Key="lableName" TargetType="Label">
+                <Setter Property="FontSize" Value="25"></Setter>
+                <Setter Property="Background" Value="White"></Setter>
+                <Setter Property="FontFamily" Value="Bahnschrift"></Setter>
+                <Setter Property="HorizontalContentAlignment" Value="Left"></Setter>
+                <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+                <Setter Property="Foreground" Value="Black"></Setter>
+                <Setter Property="Margin" Value="2"></Setter>
+            </Style>
+            <Style x:Key="lableNo" TargetType="Label">
+                <Setter Property="FontSize" Value="25"></Setter>
+                <Setter Property="Background" Value="White"></Setter>
+                <Setter Property="FontFamily" Value="Bahnschrift"></Setter>
+                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+                <Setter Property="Foreground" Value="Black"></Setter>
+                <Setter Property="Margin" Value="2"></Setter>
+            </Style>
+            <Style x:Key="lableType" TargetType="Label">
+                <Setter Property="FontSize" Value="25"></Setter>
+                <Setter Property="Background" Value="White"></Setter>
+                <Setter Property="FontFamily" Value="Bahnschrift"></Setter>
+                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+                <Setter Property="Foreground" Value="Black"></Setter>
+                <Setter Property="Margin" Value="2"></Setter>
+            </Style>
+            <Style x:Key="lableUnit" TargetType="Label">
+                <Setter Property="FontSize" Value="25"></Setter>
+                <Setter Property="Background" Value="White"></Setter>
+                <Setter Property="FontFamily" Value="Bahnschrift"></Setter>
+                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+                <Setter Property="Foreground" Value="Black"></Setter>
+                <Setter Property="Margin" Value="2"></Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+                <ColumnDefinition Width="4*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Margin="2" Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9FDABA" FontSize="25" FontWeight="Bold">NO.</Label>
+            <Label Margin="2" Grid.Row="0" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9FDABA" FontSize="25" FontWeight="Bold">Name</Label>
+            <Label Margin="2" Grid.Row="0" Grid.Column="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9FDABA" FontSize="25" FontWeight="Bold">Time Set</Label>
+            <Label Margin="2" Grid.Row="0" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9FDABA" FontSize="25" FontWeight="Bold">Type</Label>
+            <Label Margin="2" Grid.Row="0" Grid.Column="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9FDABA" FontSize="25" FontWeight="Bold">Unit</Label>
+
+            <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource lableNo}">1</Label>
+            <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource lableNo}">2</Label>
+            <!--<Label Grid.Row="3" Grid.Column="0" Style="{StaticResource lableNo}">3</Label>
+            <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource lableNo}">4</Label>-->
+            <!--<Label Grid.Row="5" Grid.Column="0" Style="{StaticResource lableNo}">5</Label>
+            <Label Grid.Row="6" Grid.Column="0" Style="{StaticResource lableNo}">6</Label>
+            <Label Grid.Row="7" Grid.Column="0" Style="{StaticResource lableNo}">7</Label>
+            <Label Grid.Row="8" Grid.Column="0" Style="{StaticResource lableNo}">8</Label>
+            <Label Grid.Row="9" Grid.Column="0" Style="{StaticResource lableNo}">9</Label>
+            <Label Grid.Row="10" Grid.Column="0" Style="{StaticResource lableNo}">10</Label>
+            <Label Grid.Row="11" Grid.Column="0" Style="{StaticResource lableNo}">11</Label>
+            <Label Grid.Row="12" Grid.Column="0" Style="{StaticResource lableNo}">12</Label>
+            <Label Grid.Row="13" Grid.Column="0" Style="{StaticResource lableNo}">13</Label>
+            <Label Grid.Row="14" Grid.Column="0" Style="{StaticResource lableNo}">14</Label>-->
+
+            <Label Grid.Row="1" Grid.Column="1" Style="{StaticResource lableName}">Delay Time Vacuum</Label>
+            <Label Grid.Row="2" Grid.Column="1" Style="{StaticResource lableName}">Delay Time Trigger Laser</Label>
+            <!--<Label Grid.Row="3" Grid.Column="1" Style="{StaticResource lableName}">Delay Blower At Centering</Label>
+            <Label Grid.Row="4" Grid.Column="1" Style="{StaticResource lableName}">Delay Vacuum At Centering</Label>-->
+            <!--<Label Grid.Row="5" Grid.Column="1" Style="{StaticResource lableName}">Delay Time</Label>
+            <Label Grid.Row="6" Grid.Column="1" Style="{StaticResource lableName}">Delay Time</Label>
+            <Label Grid.Row="7" Grid.Column="1" Style="{StaticResource lableName}">Delay Time</Label>
+            <Label Grid.Row="8" Grid.Column="1" Style="{StaticResource lableName}">Delay Time</Label>
+            <Label Grid.Row="9" Grid.Column="1" Style="{StaticResource lableName}">Delay Time</Label>
+            <Label Grid.Row="10" Grid.Column="1" Style="{StaticResource lableName}">Delay Time</Label>
+            <Label Grid.Row="11" Grid.Column="1" Style="{StaticResource lableName}">Delay Time</Label>
+            <Label Grid.Row="12" Grid.Column="1" Style="{StaticResource lableName}">Delay Time</Label>
+            <Label Grid.Row="13" Grid.Column="1" Style="{StaticResource lableName}">Delay Time</Label>
+            <Label Grid.Row="14" Grid.Column="1" Style="{StaticResource lableName}">Delay Time</Label>-->
+
+            <Label Grid.Row="1" Grid.Column="3" Style="{StaticResource lableType}">Delay</Label>
+            <Label Grid.Row="2" Grid.Column="3" Style="{StaticResource lableType}">Delay</Label>
+            <!--<Label Grid.Row="3" Grid.Column="3" Style="{StaticResource lableType}">Delay</Label>
+            <Label Grid.Row="4" Grid.Column="3" Style="{StaticResource lableType}">Delay</Label>-->
+            <!--<Label Grid.Row="5" Grid.Column="3" Style="{StaticResource lableType}">Delay</Label>
+            <Label Grid.Row="6" Grid.Column="3" Style="{StaticResource lableType}">Delay</Label>
+            <Label Grid.Row="7" Grid.Column="3" Style="{StaticResource lableType}">Delay</Label>
+            <Label Grid.Row="8" Grid.Column="3" Style="{StaticResource lableType}">Delay</Label>
+            <Label Grid.Row="9" Grid.Column="3" Style="{StaticResource lableType}">Delay</Label>
+            <Label Grid.Row="10" Grid.Column="3" Style="{StaticResource lableType}">Delay</Label>
+            <Label Grid.Row="11" Grid.Column="3" Style="{StaticResource lableType}">Delay</Label>
+            <Label Grid.Row="12" Grid.Column="3" Style="{StaticResource lableType}">Delay</Label>
+            <Label Grid.Row="13" Grid.Column="3" Style="{StaticResource lableType}">Delay</Label>
+            <Label Grid.Row="14" Grid.Column="3" Style="{StaticResource lableType}">Delay</Label>-->
+
+            <Label Grid.Row="1" Grid.Column="4" Style="{StaticResource lableUnit}">Second</Label>
+            <Label Grid.Row="2" Grid.Column="4" Style="{StaticResource lableUnit}">Second</Label>
+            <!--<Label Grid.Row="3" Grid.Column="4" Style="{StaticResource lableUnit}">Second</Label>
+            <Label Grid.Row="4" Grid.Column="4" Style="{StaticResource lableUnit}">Second</Label>-->
+            <!--<Label Grid.Row="5" Grid.Column="4" Style="{StaticResource lableUnit}">Second</Label>
+            <Label Grid.Row="6" Grid.Column="4" Style="{StaticResource lableUnit}">Second</Label>
+            <Label Grid.Row="7" Grid.Column="4" Style="{StaticResource lableUnit}">Second</Label>
+            <Label Grid.Row="8" Grid.Column="4" Style="{StaticResource lableUnit}">Second</Label>
+            <Label Grid.Row="9" Grid.Column="4" Style="{StaticResource lableUnit}">Second</Label>
+            <Label Grid.Row="10" Grid.Column="4" Style="{StaticResource lableUnit}">Second</Label>
+            <Label Grid.Row="11" Grid.Column="4" Style="{StaticResource lableUnit}">Second</Label>
+            <Label Grid.Row="12" Grid.Column="4" Style="{StaticResource lableUnit}">Second</Label>
+            <Label Grid.Row="13" Grid.Column="4" Style="{StaticResource lableUnit}">Second</Label>
+            <Label Grid.Row="14" Grid.Column="4" Style="{StaticResource lableUnit}">Second</Label>-->
+
+            <Grid Grid.Row="1" Grid.Column="2" Margin="2">
+                <device:DataWord_D FontFamily="Agency FB"  NoOfDecimalDigits="1" IsShowInWindow="True" NoOfDisplay="4" Device="800" IsReadOnly="False" Background="Black" Foreground="White">
+                </device:DataWord_D>
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="2" Margin="2">
+                <device:DataWord_D FontFamily="Agency FB"  NoOfDecimalDigits="1" IsShowInWindow="True" NoOfDisplay="4" Device="802" IsReadOnly="False" Background="Black" Foreground="White">
+                </device:DataWord_D>
+            </Grid>
+            <!--<Grid Grid.Row="3" Grid.Column="2" Margin="2">
+                <device:DataWord_D FontFamily="Agency FB"  NoOfDecimalDigits="1" IsShowInWindow="True" NoOfDisplay="4" Device="2" IsReadOnly="False" Background="Black" Foreground="White">
+                </device:DataWord_D>
+            </Grid>
+            <Grid Grid.Row="4" Grid.Column="2" Margin="2">
+                <device:DataWord_D FontFamily="Agency FB"  NoOfDecimalDigits="1" IsShowInWindow="True" NoOfDisplay="4" Device="3" IsReadOnly="False" Background="Black" Foreground="White">
+                </device:DataWord_D>
+            </Grid>-->
+            <!--<Grid Grid.Row="5" Grid.Column="2" Margin="2">
+                <device:DataWord_D FontFamily="Agency FB"  NoOfDecimalDigits="1" IsShowInWindow="True" NoOfDisplay="4" Device="0" IsReadOnly="False" Background="Black" Foreground="White">
+                </device:DataWord_D>
+            </Grid>
+            <Grid Grid.Row="6" Grid.Column="2" Margin="2">
+                <device:DataWord_D FontFamily="Agency FB"  NoOfDecimalDigits="1" IsShowInWindow="True" NoOfDisplay="4" Device="0" IsReadOnly="False" Background="Black" Foreground="White">
+                </device:DataWord_D>
+            </Grid>
+            <Grid Grid.Row="7" Grid.Column="2" Margin="2">
+                <device:DataWord_D FontFamily="Agency FB"  NoOfDecimalDigits="1" IsShowInWindow="True" NoOfDisplay="4" Device="0" IsReadOnly="False" Background="Black" Foreground="White">
+                </device:DataWord_D>
+            </Grid>
+            <Grid Grid.Row="8" Grid.Column="2" Margin="2">
+                <device:DataWord_D FontFamily="Agency FB"  NoOfDecimalDigits="1" IsShowInWindow="True" NoOfDisplay="4" Device="0" IsReadOnly="False" Background="Black" Foreground="White">
+                </device:DataWord_D>
+            </Grid>
+            <Grid Grid.Row="9" Grid.Column="2" Margin="2">
+                <device:DataWord_D FontFamily="Agency FB"  NoOfDecimalDigits="1" IsShowInWindow="True" NoOfDisplay="4" Device="0" IsReadOnly="False" Background="Black" Foreground="White">
+                </device:DataWord_D>
+            </Grid>
+            <Grid Grid.Row="10" Grid.Column="2" Margin="2">
+                <device:DataWord_D FontFamily="Agency FB"  NoOfDecimalDigits="1" IsShowInWindow="True" NoOfDisplay="4" Device="0" IsReadOnly="False" Background="Black" Foreground="White">
+                </device:DataWord_D>
+            </Grid>
+            <Grid Grid.Row="11" Grid.Column="2" Margin="2">
+                <device:DataWord_D FontFamily="Agency FB"  NoOfDecimalDigits="1" IsShowInWindow="True" NoOfDisplay="4" Device="0" IsReadOnly="False" Background="Black" Foreground="White">
+                </device:DataWord_D>
+            </Grid>
+            <Grid Grid.Row="12" Grid.Column="2" Margin="2">
+                <device:DataWord_D FontFamily="Agency FB"  NoOfDecimalDigits="1" IsShowInWindow="True" NoOfDisplay="4" Device="0" IsReadOnly="False" Background="Black" Foreground="White">
+                </device:DataWord_D>
+            </Grid>
+            <Grid Grid.Row="13" Grid.Column="2" Margin="2">
+                <device:DataWord_D FontFamily="Agency FB"  NoOfDecimalDigits="1" IsShowInWindow="True" NoOfDisplay="4" Device="0" IsReadOnly="False" Background="Black" Foreground="White">
+                </device:DataWord_D>
+            </Grid>
+            <Grid Grid.Row="14" Grid.Column="2" Margin="2">
+                <device:DataWord_D FontFamily="Agency FB"  NoOfDecimalDigits="1" IsShowInWindow="True" NoOfDisplay="4" Device="0" IsReadOnly="False" Background="Black" Foreground="White">
+                </device:DataWord_D>
+            </Grid>-->
+        </Grid>
+        <Grid Grid.Column="1" Background="#FFB9EAEA">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="3*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                   FontSize="25"
+                   Style="{StaticResource LabelHeader}"
+                   Background="#FF74A8A1"
+                   FontFamily="Elephant">MENU</Label>
+            <Grid Grid.Row="1">
+                <local:ButtonMechanical Background="#FF70E6E6" DeviceButton="PAGE_MENU_MECHANICAL_DELAY_TIME">
+                    <local:ButtonMechanical.Content>DELAY TIME</local:ButtonMechanical.Content>
+                    <local:ButtonMechanical.Style>
+                        <Style TargetType="local:ButtonMechanical">
+                            <Setter Property="RectangleFill" Value="DarkRed" />
+                        </Style>
+                    </local:ButtonMechanical.Style>
+                </local:ButtonMechanical>
+            </Grid>
+            <Grid Grid.Row="2">
+                <local:ButtonMechanical Background="White" DeviceButton="PAGE_MENU_MECHANICAL_DEVICE">
+                    <local:ButtonMechanical.Content>DEVICE</local:ButtonMechanical.Content>
+                </local:ButtonMechanical>
+            </Grid>
+            <Grid Grid.Row="3">
+                <local:ButtonMechanical Background="White" DeviceButton="PAGE_MENU_MECHANICAL_AOI">
+                    <local:ButtonMechanical.Content>MES</local:ButtonMechanical.Content>
+                </local:ButtonMechanical>
+            </Grid>
+            <Grid Grid.Row="4">
+                <local:ButtonMechanical Background="White" DeviceButton="PAGE_MENU_MECHANICAL_BARCODE">
+                    <local:ButtonMechanical.Content>BARCODE</local:ButtonMechanical.Content>
+                </local:ButtonMechanical>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

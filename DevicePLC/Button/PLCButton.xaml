@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="DevicePLC.PLCButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DevicePLC"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             x:Name="userControlAlternative">
+    <Grid>
+        <Image x:Name="img"
+               Stretch="Fill" Source="{Binding ImageSource, ElementName=userControlAlternative}" />
+        <Button x:Name="btn"
+        Content="{Binding Content, ElementName=userControlAlternative}"
+        Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}"
+        BorderThickness="{Binding BorderThickness, RelativeSource={RelativeSource AncestorType=UserControl}}"
+        FontSize="{Binding FontSize, RelativeSource={RelativeSource AncestorType=UserControl}}"
+        Tag="{Binding Tag, RelativeSource={RelativeSource AncestorType=UserControl}}"
+        Click="Button_Click" IsManipulationEnabled="True" TouchDown="Button_TouchDown"
+        PreviewTouchDown="Button_PreviewTouchDown"
+        PreviewTouchUp="Button_PreviewTouchUp"
+        LostTouchCapture="Button_LostTouchCapture"
+        PreviewMouseDown="Button_PreviewMouseDown"
+        PreviewMouseMove="Button_PreviewMouseMove"
+        PreviewMouseUp="Button_PreviewMouseUp">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <ColorAnimation Duration="0" To="Transparent" Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)" Storyboard.TargetName="btnBackground" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border x:Name="btnBackground" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+    </Grid>
+</UserControl>

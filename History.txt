@@ -1,0 +1,4 @@
+﻿
+12/12/2023 : Ver 1.0.2 sửa phần khi data nằm ở ngày trước.
+11/12/2023 : Ver 1.0.1 Sửa phần kiểm tra data Underfill , lý do khi Setup ban đầu , người ta muốn chạy tiếp các điểm.
+05/12/2023 : Ver 1.0.0 Start Program.

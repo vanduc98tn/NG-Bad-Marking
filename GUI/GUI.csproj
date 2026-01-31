@@ -1,0 +1,548 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0DCFAC79-316E-4E2F-8934-A35FAFEC8048}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GUI</RootNamespace>
+    <AssemblyName>GUI</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Dialog\Window Select Running\WndRetryVacuumAtCentering.xaml.cs">
+      <DependentUpon>WndRetryVacuumAtCentering.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\Window Select Running\WndRetryVacuumAtPickupTray.xaml.cs">
+      <DependentUpon>WndRetryVacuumAtPickupTray.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\WndAlarmShow.xaml.cs">
+      <DependentUpon>WndAlarmShow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\WndChangePassword.xaml.cs">
+      <DependentUpon>WndChangePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\WndComSetting.xaml.cs">
+      <DependentUpon>WndComSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\Data Teaching Transfer\WndDataPosAxisXTransfer.xaml.cs">
+      <DependentUpon>WndDataPosAxisXTransfer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\Data Teaching Transfer\WndDataPosAxisYTransfer.xaml.cs">
+      <DependentUpon>WndDataPosAxisYTransfer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\Data Teaching Transfer\WndDataPosAxisZTransfer.xaml.cs">
+      <DependentUpon>WndDataPosAxisZTransfer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\wndJigOffline.xaml.cs">
+      <DependentUpon>wndJigOffline.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\WndLogIn.xaml.cs">
+      <DependentUpon>WndLogIn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\WndLotIn.xaml.cs">
+      <DependentUpon>WndLotIn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\WndComfirm.xaml.cs">
+      <DependentUpon>WndComfirm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\WndMbComSetting.xaml.cs">
+      <DependentUpon>WndMbComSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\WndMbTCPSetting.xaml.cs">
+      <DependentUpon>WndMbTCPSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\wndMCESetting.xaml.cs">
+      <DependentUpon>wndMCESetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\WndMESCheckOK.xaml.cs">
+      <DependentUpon>WndMESCheckOK.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\WndPatern.xaml.cs">
+      <DependentUpon>WndPatern.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\WndTCPSetting.xaml.cs">
+      <DependentUpon>WndTCPSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LogManager\AlarmLogs.cs" />
+    <Compile Include="LogManager\EventLogs.cs" />
+    <Compile Include="LogManager\LotStatusLogs.cs" />
+    <Compile Include="LogManager\PCMDataLogs.cs" />
+    <Compile Include="PageUI\Menu Child\Manual\PgManualCentering.xaml.cs">
+      <DependentUpon>PgManualCentering.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageUI\Menu Child\Manual\PgManualMotor.xaml.cs">
+      <DependentUpon>PgManualMotor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageUI\Menu Child\Manual\PgManualPickerBufferPickerHandle.xaml.cs">
+      <DependentUpon>PgManualPickerBufferPickerHandle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageUI\Menu Child\PgAOISettingMenu.xaml.cs">
+      <DependentUpon>PgAOISettingMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageUI\Menu Child\PgAssignMenu.xaml.cs">
+      <DependentUpon>PgAssignMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageUI\Menu Child\PgMechanicalBarcode.xaml.cs">
+      <DependentUpon>PgMechanicalBarcode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageUI\Menu Child\PgMechanicalDelayTime.xaml.cs">
+      <DependentUpon>PgMechanicalDelayTime.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageUI\Menu Child\PgMenuLoad.xaml.cs">
+      <DependentUpon>PgMenuLoad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageUI\PgIO.xaml.cs">
+      <DependentUpon>PgIO.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageUI\PgLastAlarm.xaml.cs">
+      <DependentUpon>PgLastAlarm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageUI\PgMain.cs" />
+    <Compile Include="PageUI\PgMain.xaml.cs">
+      <DependentUpon>PgMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageUI\Menu Child\Manual\PgManualPickerTransferMenu.xaml.cs">
+      <DependentUpon>PgManualPickerTransferMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageUI\Menu Child\PgMechanicalPLCMenu.xaml.cs">
+      <DependentUpon>PgMechanicalPLCMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageUI\PgMenuBase.xaml.cs">
+      <DependentUpon>PgMenuBase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageUI\Menu Child\PgModelMenu.xaml.cs">
+      <DependentUpon>PgModelMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageUI\Menu Child\PgStatusMenu.xaml.cs">
+      <DependentUpon>PgStatusMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageUI\Menu Child\PgSuperUserMenu.xaml.cs">
+      <DependentUpon>PgSuperUserMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageUI\Menu Child\PgSystemMenu.xaml.cs">
+      <DependentUpon>PgSystemMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageUI\Menu Child\PgTeachingMenu.xaml.cs">
+      <DependentUpon>PgTeachingMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LogManager\LogsManager.cs" />
+    <Compile Include="UIManager\UIManager.cs" />
+    <Compile Include="UserControl\UserControlButton\MenuTap\ButtonMechanical.xaml.cs">
+      <DependentUpon>ButtonMechanical.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManager\UserManager.cs" />
+    <Page Include="Dialog\Window Select Running\WndRetryVacuumAtCentering.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog\Window Select Running\WndRetryVacuumAtPickupTray.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog\WndAlarmShow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog\WndChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog\WndComSetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog\Data Teaching Transfer\WndDataPosAxisXTransfer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog\Data Teaching Transfer\WndDataPosAxisYTransfer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog\Data Teaching Transfer\WndDataPosAxisZTransfer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog\wndJigOffline.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog\WndLogIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog\WndLotIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog\WndComfirm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog\WndMbComSetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog\WndMbTCPSetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog\wndMCESetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog\WndMESCheckOK.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog\WndPatern.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog\WndTCPSetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="PageUI\Menu Child\Manual\PgManualCentering.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageUI\Menu Child\Manual\PgManualMotor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageUI\Menu Child\Manual\PgManualPickerBufferPickerHandle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageUI\Menu Child\PgAOISettingMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageUI\Menu Child\PgAssignMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageUI\Menu Child\PgMechanicalBarcode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageUI\Menu Child\PgMechanicalDelayTime.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PageUI\Menu Child\PgMenuLoad.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageUI\PgIO.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageUI\PgLastAlarm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageUI\PgMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageUI\Menu Child\Manual\PgManualPickerTransferMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageUI\Menu Child\PgMechanicalPLCMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageUI\PgMenuBase.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageUI\Menu Child\PgModelMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageUI\Menu Child\PgStatusMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageUI\Menu Child\PgSuperUserMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageUI\Menu Child\PgSystemMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageUI\Menu Child\PgTeachingMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resource\ResourceButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\UserControlButton\MenuTap\ButtonMechanical.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\131.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\BackGround1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\power-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\Login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\eyeLogin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\menu-login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\menu-logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\menu-grid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\menu-system.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\menu-admin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\menu-mechanic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\menu-manual.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\menu-save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\menu-status.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\Menu_Login1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\login2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\PLC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\connect_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\Disconnect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\No.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\continue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\32146_go_button_perspective_green_top_icon.png" />
+    <Resource Include="Resource\Image\32149_button_logoff_perspective_icon.png" />
+    <Resource Include="Resource\Image\32153_button_perspective_standby_icon.png" />
+    <Resource Include="Resource\Image\32154_button_red_stop_icon.png" />
+    <Resource Include="Resource\Image\back - Copy.png" />
+    <Resource Include="Resource\Image\back.png" />
+    <Resource Include="Resource\Image\check-mark.png" />
+    <Resource Include="Resource\Image\checkbox.png" />
+    <Resource Include="Resource\Image\close.png" />
+    <Resource Include="Resource\Image\emergency-stop.png" />
+    <Resource Include="Resource\Image\enter.png" />
+    <Resource Include="Resource\Image\home-button.png" />
+    <Resource Include="Resource\Image\next-button %281%29 - Copy.png" />
+    <Resource Include="Resource\Image\next-button %281%29.png" />
+    <Resource Include="Resource\Image\off.png" />
+    <Resource Include="Resource\Image\on.png" />
+    <Resource Include="Resource\Image\push.png" />
+    <Resource Include="Resource\Image\reset.png" />
+    <Resource Include="Resource\Image\search.png" />
+    <Resource Include="Resource\Image\silent.png" />
+    <Resource Include="Resource\Image\sound.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\left-arrow - Copy.png" />
+    <Resource Include="Resource\Image\left-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\lotend.png" />
+    <Resource Include="Resource\Image\lotin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\assign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\Lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\Arrow_Right.png" />
+    <Resource Include="Resource\Image\Arrow_Left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\scanner.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\Move.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\down.png" />
+    <Resource Include="Resource\Image\left.png" />
+    <Resource Include="Resource\Image\right.png" />
+    <Resource Include="Resource\Image\up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\1.PNG" />
+    <Resource Include="Resource\Image\10.PNG" />
+    <Resource Include="Resource\Image\11.PNG" />
+    <Resource Include="Resource\Image\12.PNG" />
+    <Resource Include="Resource\Image\13.PNG" />
+    <Resource Include="Resource\Image\14.PNG" />
+    <Resource Include="Resource\Image\15.PNG" />
+    <Resource Include="Resource\Image\16.PNG" />
+    <Resource Include="Resource\Image\2.PNG" />
+    <Resource Include="Resource\Image\3.PNG" />
+    <Resource Include="Resource\Image\4.PNG" />
+    <Resource Include="Resource\Image\5.PNG" />
+    <Resource Include="Resource\Image\6.PNG" />
+    <Resource Include="Resource\Image\7.PNG" />
+    <Resource Include="Resource\Image\8.PNG" />
+    <Resource Include="Resource\Image\9.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\Reset Button.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\DirectionArrow.png" />
+    <Resource Include="Resource\Image\Machine.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\open-folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{e39ea36a-2ea1-4873-a4d1-2dc68b751fd2}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{d02efae8-365a-419d-95a2-74b5e360d5c2}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevicePLC\DevicePLC.csproj">
+      <Project>{0be8014d-9136-486a-8417-b7fa664f1b34}</Project>
+      <Name>DevicePLC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{343643a8-c499-4219-b91e-705613a8a8d6}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

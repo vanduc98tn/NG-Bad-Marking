@@ -1,0 +1,227 @@
+﻿<Window x:Class="GUI.WndDataPosAxisYTransfer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        xmlns:device="clr-namespace:DevicePLC;assembly=DevicePLC"
+        mc:Ignorable="d"
+        Title="WndDataPosAxisYTransfer" WindowStartupLocation="CenterScreen" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FFB3FBFB" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.Resources>
+            <Style x:Key="lableName" TargetType="Label">
+                <Setter Property="FontSize" Value="25"></Setter>
+                <Setter Property="Background" Value="White"></Setter>
+                <Setter Property="FontFamily" Value="Bahnschrift"></Setter>
+                <Setter Property="HorizontalContentAlignment" Value="Left"></Setter>
+                <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+                <Setter Property="Foreground" Value="Black"></Setter>
+                <Setter Property="Margin" Value="2"></Setter>
+            </Style>
+            <Style x:Key="lableNo" TargetType="Label">
+                <Setter Property="FontSize" Value="25"></Setter>
+                <Setter Property="Background" Value="White"></Setter>
+                <Setter Property="FontFamily" Value="Bahnschrift"></Setter>
+                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+                <Setter Property="Foreground" Value="Black"></Setter>
+                <Setter Property="Margin" Value="2"></Setter>
+            </Style>
+            <Style x:Key="lableType" TargetType="Label">
+                <Setter Property="FontSize" Value="25"></Setter>
+                <Setter Property="Background" Value="White"></Setter>
+                <Setter Property="FontFamily" Value="Bahnschrift"></Setter>
+                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+                <Setter Property="Foreground" Value="Black"></Setter>
+                <Setter Property="Margin" Value="2"></Setter>
+            </Style>
+            <Style x:Key="lableUnit" TargetType="Label">
+                <Setter Property="FontSize" Value="25"></Setter>
+                <Setter Property="Background" Value="White"></Setter>
+                <Setter Property="FontFamily" Value="Bahnschrift"></Setter>
+                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+                <Setter Property="Foreground" Value="Black"></Setter>
+                <Setter Property="Margin" Value="2"></Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.7*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Margin="2" Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9FDABA" FontSize="25" FontWeight="Bold">NO.</Label>
+            <Label Margin="2" Grid.Row="0" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9FDABA" FontSize="25" FontWeight="Bold">DESCRIPTION</Label>
+            <Label Margin="2" Grid.Row="0" Grid.Column="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9FDABA" FontSize="25" FontWeight="Bold">Speed(mm/s)</Label>
+            <Label Margin="2" Grid.Row="0" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF9FDABA" FontSize="25" FontWeight="Bold">Data(mm)</Label>
+
+            <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource lableNo}">1</Label>
+            <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource lableNo}">2</Label>
+            <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource lableNo}">3</Label>
+            <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource lableNo}">4</Label>
+            <Label Grid.Row="5" Grid.Column="0" Style="{StaticResource lableNo}">5</Label>
+
+            <Label Grid.Row="1" Grid.Column="1" Style="{StaticResource lableName}">Pickup Matrix Tray</Label>
+            <Label Grid.Row="2" Grid.Column="1" Style="{StaticResource lableName}">Pickup Matrix Buffer 1</Label>
+            <Label Grid.Row="3" Grid.Column="1" Style="{StaticResource lableName}">Pickup Matrix Buffer 2</Label>
+            <Label Grid.Row="4" Grid.Column="1" Style="{StaticResource lableName}">Pickup Centering</Label>
+            <Label Grid.Row="5" Grid.Column="1" Style="{StaticResource lableName}">Pickup Ready</Label>
+
+            <Grid Grid.Row="1" Grid.Column="3" Margin="2">
+                <device:DataDWord_D NoOfDecimalDigits="3" IsShowInWindow="True" FontFamily="Agency FB" NoOfDisplay="4" Device="3110" IsReadOnly="False" Background="Black" Foreground="Yellow">
+                </device:DataDWord_D>
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="3" Margin="2">
+                <device:DataDWord_D NoOfDecimalDigits="3" IsShowInWindow="True" FontFamily="Agency FB" NoOfDisplay="4" Device="3310" IsReadOnly="False" Background="Black" Foreground="Yellow" Grid.ColumnSpan="2"></device:DataDWord_D>
+            </Grid>
+            <Grid Grid.Row="3" Grid.Column="3" Margin="2">
+                <device:DataDWord_D NoOfDecimalDigits="3" IsShowInWindow="True" FontFamily="Agency FB" NoOfDisplay="4" Device="3510" IsReadOnly="False" Background="Black" Foreground="Yellow"></device:DataDWord_D>
+            </Grid>
+            <Grid Grid.Row="4" Grid.Column="3" Margin="2">
+                <device:DataDWord_D NoOfDecimalDigits="3" IsShowInWindow="True" FontFamily="Agency FB" NoOfDisplay="4" Device="5070" IsReadOnly="False" Background="Black" Foreground="Yellow">
+                </device:DataDWord_D>
+            </Grid>
+            <Grid Grid.Row="5" Grid.Column="3" Margin="2">
+                <device:DataDWord_D NoOfDecimalDigits="3" IsShowInWindow="True" FontFamily="Agency FB" NoOfDisplay="4" Device="5072" IsReadOnly="False" Background="Black" Foreground="Yellow">
+                </device:DataDWord_D>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="2" Margin="2">
+                <device:DataDWord_D  NoOfDecimalDigits="3" IsShowInWindow="True" FontFamily="Agency FB" NoOfDisplay="4" Device="5210" IsReadOnly="False" Background="Black" Foreground="White">
+                </device:DataDWord_D>
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="2" Margin="2">
+                <device:DataDWord_D NoOfDecimalDigits="3" IsShowInWindow="True" FontFamily="Agency FB" NoOfDisplay="4" Device="5212" IsReadOnly="False" Background="Black" Foreground="White" Grid.ColumnSpan="2"></device:DataDWord_D>
+            </Grid>
+            <Grid Grid.Row="3" Grid.Column="2" Margin="2">
+                <device:DataDWord_D NoOfDecimalDigits="3" IsShowInWindow="True" FontFamily="Agency FB" NoOfDisplay="4" Device="5214" IsReadOnly="False" Background="Black" Foreground="White"></device:DataDWord_D>
+            </Grid>
+            <Grid Grid.Row="4" Grid.Column="2" Margin="2">
+                <device:DataDWord_D NoOfDecimalDigits="3" IsShowInWindow="True" FontFamily="Agency FB" NoOfDisplay="4" Device="5170" IsReadOnly="False" Background="Black" Foreground="White">
+                </device:DataDWord_D>
+            </Grid>
+            <Grid Grid.Row="5" Grid.Column="2" Margin="2">
+                <device:DataDWord_D NoOfDecimalDigits="3" IsShowInWindow="True" FontFamily="Agency FB" NoOfDisplay="4" Device="5172" IsReadOnly="False" Background="Black" Foreground="White">
+                </device:DataDWord_D>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="2">
+                    <Label Grid.Row="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="25" Background="Aqua">Matrix Tray</Label>
+                </Grid>
+                <Grid Grid.Row="1" Margin="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" FontSize="18" Style="{StaticResource lableName}">Pitch</Label>
+                    <Label Grid.Row="1" Grid.Column="0" FontSize="18" Style="{StaticResource lableName}">Count</Label>
+                    <Grid Grid.Row="0" Grid.Column="1" Margin="2">
+                        <device:DataDWord_D NoOfDecimalDigits="3" FontFamily="Agency FB" IsShowInWindow="True" NoOfDisplay="4" Device="3102" IsReadOnly="False" Background="Black" Foreground="White">
+                        </device:DataDWord_D>
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="1" Margin="2">
+                        <device:DataWord_D NoOfDecimalDigits="0" FontFamily="Agency FB" IsShowInWindow="True" NoOfDisplay="4" Device="3100" IsReadOnly="False" Background="Black" Foreground="White">
+                        </device:DataWord_D>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="2">
+                    <Label Grid.Row="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="25" Background="Aqua">Matrix Buffer 1</Label>
+                </Grid>
+                <Grid Grid.Row="1" Margin="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" FontSize="18" Style="{StaticResource lableName}">Pitch</Label>
+                    <Label Grid.Row="1" Grid.Column="0" FontSize="18" Style="{StaticResource lableName}">Count</Label>
+                    <Grid Grid.Row="0" Grid.Column="1" Margin="2">
+                        <device:DataDWord_D NoOfDecimalDigits="4" FontFamily="Agency FB" IsShowInWindow="True" NoOfDisplay="3" Device="3302" IsReadOnly="False" Background="Black" Foreground="White">
+                        </device:DataDWord_D>
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="1" Margin="2">
+                        <device:DataWord_D NoOfDecimalDigits="0" FontFamily="Agency FB" IsShowInWindow="True" NoOfDisplay="4" Device="3300" IsReadOnly="False" Background="Black" Foreground="White">
+                        </device:DataWord_D>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="2">
+                    <Label Grid.Row="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="25" Background="Aqua">Matrix Buffer 2</Label>
+                </Grid>
+                <Grid Grid.Row="1" Margin="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" FontSize="18" Style="{StaticResource lableName}">Pitch</Label>
+                    <Label Grid.Row="1" Grid.Column="0" FontSize="18" Style="{StaticResource lableName}">Count</Label>
+                    <Grid Grid.Row="0" Grid.Column="1" Margin="2">
+                        <device:DataDWord_D NoOfDecimalDigits="3" FontFamily="Agency FB" IsShowInWindow="True" NoOfDisplay="4" Device="3502" IsReadOnly="False" Background="Black" Foreground="White">
+                        </device:DataDWord_D>
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="1" Margin="2">
+                        <device:DataWord_D NoOfDecimalDigits="0" FontFamily="Agency FB" IsShowInWindow="True" NoOfDisplay="4" Device="3500" IsReadOnly="False" Background="Black" Foreground="White">
+                        </device:DataWord_D>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

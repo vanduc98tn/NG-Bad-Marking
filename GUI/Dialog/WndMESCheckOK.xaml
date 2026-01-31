@@ -1,0 +1,41 @@
+﻿<Window x:Class="GUI.WndMESCheckOK"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        xmlns:device="clr-namespace:DevicePLC;assembly=DevicePLC"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        Background="#dddddd" BorderThickness="2" BorderBrush="Yellow"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Title="WndAlarmShow" Height="300" Width="400">
+    <Grid Background="#FF11F080" x:Name="gridMESResult">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Label VerticalContentAlignment="Center" Foreground="Black" FontSize="20" FontWeight="Bold">INFORMATION MES RESULT</Label>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="White" Margin="30" FontSize="40" FontWeight="Bold">MES CHECK OK</Label>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnClose" Grid.Column="1" Width="120" BorderThickness="1" BorderBrush="Blue" FontSize="25" FontWeight="Bold" Content="OK">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="#FFFFFF58" Offset="0.547"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

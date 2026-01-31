@@ -1,0 +1,165 @@
+﻿<Window x:Class="GUI.WndRetryVacuumAtPickupTray"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        xmlns:PLC="clr-namespace:DevicePLC;assembly=DevicePLC"
+        mc:Ignorable="d"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Title="Confirm Message" Height="200" Width="450">
+    <UniformGrid Rows="3">
+        <Label Name="lblMessage" Foreground="Red" FontSize="20"
+           HorizontalContentAlignment="Center" FontFamily="Rockwell Extra Bold" VerticalContentAlignment="Center" FontWeight="Bold">Vacuum Pickup Tray không đạt</Label>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Margin="5">
+                <PLC:RectangleLamp
+                    DeviceLamp="M" AddressLamp="3360"
+                    IsShowInWindow="True"
+                    IsTabItem="False"
+                    Background="LightGray"
+                    BackgroundLampOFF="Red" 
+                    BackgroundLampON="LightGreen"
+                    TextON="Picker 1"
+                    TextOFF="Picker 1">
+                </PLC:RectangleLamp>
+            </Grid>
+            <Grid Grid.Column="1" Margin="5">
+                <PLC:RectangleLamp
+                    DeviceLamp="M" AddressLamp="3361"
+                    IsShowInWindow="True"
+                    IsTabItem="False"
+                    Background="LightGray"
+                    BackgroundLampOFF="Red" 
+                    BackgroundLampON="LightGreen"
+                    TextON="Picker 2"
+                    TextOFF="Picker 2">
+                </PLC:RectangleLamp>
+            </Grid>
+            <Grid Grid.Column="2" Margin="5">
+                <PLC:RectangleLamp
+                    DeviceLamp="M" AddressLamp="3362"
+                    IsShowInWindow="True"
+                    IsTabItem="False"
+                    Background="LightGray"
+                    BackgroundLampOFF="Red" 
+                    BackgroundLampON="LightGreen"
+                    TextON="Picker 3"
+                    TextOFF="Picker 3">
+                </PLC:RectangleLamp>
+            </Grid>
+            <Grid Grid.Column="3" Margin="5">
+                <PLC:RectangleLamp
+                    DeviceLamp="M" AddressLamp="3363"
+                    IsShowInWindow="True"
+                    IsTabItem="False"
+                    Background="LightGray"
+                    BackgroundLampOFF="Red" 
+                    BackgroundLampON="LightGreen"
+                    TextON="Picker 4"
+                    TextOFF="Picker 4">
+                </PLC:RectangleLamp>
+            </Grid>
+            <Grid Grid.Column="4" Margin="5">
+                <PLC:RectangleLamp
+                    DeviceLamp="M" AddressLamp="3364"
+                    IsShowInWindow="True"
+                    IsTabItem="False"
+                    Background="LightGray"
+                    BackgroundLampOFF="Red" 
+                    BackgroundLampON="LightGreen"
+                    TextON="Picker 5"
+                    TextOFF="Picker 5">
+                </PLC:RectangleLamp>
+            </Grid>
+            <Grid Grid.Column="5" Margin="5">
+                <PLC:RectangleLamp
+                    DeviceLamp="M" AddressLamp="3365"
+                    IsShowInWindow="True"
+                    IsTabItem="False"
+                    Background="LightGray"
+                    BackgroundLampOFF="Red" 
+                    BackgroundLampON="LightGreen"
+                    TextON="Picker 6"
+                    TextOFF="Picker 6">
+                </PLC:RectangleLamp>
+            </Grid>
+            <Grid Grid.Column="6" Margin="5">
+                <PLC:RectangleLamp
+                    DeviceLamp="M" AddressLamp="3366"
+                    IsShowInWindow="True"
+                    IsTabItem="False"
+                    Background="LightGray"
+                    BackgroundLampOFF="Red" 
+                    BackgroundLampON="LightGreen"
+                    TextON="Picker 7"
+                    TextOFF="Picker 7">
+                </PLC:RectangleLamp>
+            </Grid>
+            <Grid Grid.Column="7" Margin="5">
+                <PLC:RectangleLamp
+                    DeviceLamp="M" AddressLamp="3367"
+                    IsShowInWindow="True"
+                    IsTabItem="False"
+                    Background="LightGray"
+                    BackgroundLampOFF="Red" 
+                    BackgroundLampON="LightGreen"
+                    TextON="Picker 8"
+                    TextOFF="Picker 8">
+                </PLC:RectangleLamp>
+            </Grid>
+        </Grid>
+        <Grid Background="DodgerBlue">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <PLC:PLCButton
+                 Grid.Column="0"
+                 Margin="11"
+                 IsTabItem="False"
+                 Action="Momentary"
+                IsShowInWindow="True"
+                 DeviceWrite="M" AddressWrite="464"
+                 UseLampCodition="True"
+                 DeviceLamp="M" AddressLamp="464"
+                 Background="LightGray"
+                 BackgroundLampOFF="LightGray"
+                 BackgroundLampON="AliceBlue"
+                 TextOFF="Retry"
+                 TextON="Retry"
+                 Content="Retry"
+                 Foreground="Black"
+                 FontSize="12">
+            </PLC:PLCButton>
+            <PLC:PLCButton
+                 Grid.Column="1"
+                 Margin="11"
+                 IsTabItem="False"
+                 Action="Momentary"
+                IsShowInWindow="True"
+                 DeviceWrite="M" AddressWrite="465"
+                 UseLampCodition="True"
+                 DeviceLamp="M" AddressLamp="465"
+                 Background="LightGray"
+                 BackgroundLampOFF="LightGray"
+                 BackgroundLampON="AliceBlue"
+                 TextOFF="Skip"
+                 TextON="Skip"
+                 Content="Skip"
+                 Foreground="Black"
+                 FontSize="12">
+            </PLC:PLCButton>
+        </Grid>
+    </UniformGrid>
+</Window>
