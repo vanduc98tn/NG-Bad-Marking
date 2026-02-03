@@ -2281,97 +2281,305 @@ namespace GUI
 
             // --- GROUP 1: SNAKE HORIZONTAL (1-4) - Đi kiểu chữ S ngang ---
             if (idPatern == 1)
-            { // Trái-Dưới bắt đầu, S-ngang (Khớp hình ảnh bạn gửi)
+            {
                 autogen.pt1 = new List<Pattern>();
-                for (int y = 0; y < yRow; y++)
-                    for (int x = 0; x < xColumn; x++)
+                if (Use2Matrix)
+                {
+                    for (int y = 0; y < yRow; y++)
                     {
-                        int xLogic = (y % 2 == 0) ? x : (xColumn - 1 - x);
-                        autogen.pt1.Add(new Pattern { pos = { ID = GetID(xLogic, y), X = GetX(xLogic), Y = Math.Round(startPosY + (y * PitchY), 3) } });
+                        int yLogic = (yRow - 1) - y; // đi từ dưới lên
+                        // ---- Matrix trái ----
+                        for (int x = 0; x < halfCol; x++)
+                        {
+                            int xLogic = (yLogic % 2 == 0) ? x : (halfCol - 1 - x);
+                            autogen.pt1.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X  = GetX(x), Y = Math.Round(startPosY + yLogic * PitchY, 3) } });
+                        }
+                        // ---- Matrix phải ----
+                        for (int x = halfCol; x < xColumn; x++)
+                        {
+                            int localX = x - halfCol;
+                            int colsM2 = xColumn - halfCol;
+                            int xLogic = halfCol + ((yLogic % 2 == 0) ? localX : (colsM2 - 1 - localX));
+                            autogen.pt1.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X  = GetX(x), Y = Math.Round(startPosY + yLogic * PitchY, 3) } });
+                        }
                     }
+                }
+                else
+                {
+                    for (int y = 0; y < yRow; y++)
+                    {
+                        int yLogic = (yRow - 1) - y; // dưới lên
+                        for (int x = 0; x < xColumn; x++)
+                        {
+                            int xLogic = (yLogic % 2 == 0) ? x : (xColumn - 1 - x);
+                            autogen.pt1.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X  = GetX(x), Y  = Math.Round(startPosY + yLogic * PitchY, 3) } });
+                        }
+                    }
+                }
                 autogen.pt1 = autogen.pt1.OrderBy(p => p.pos.ID).ToList();
             }
             if (idPatern == 2)
-            { // Phải-Trên bắt đầu, Z-ngang
+            {
                 autogen.pt2 = new List<Pattern>();
-                for (int y = 0; y < yRow; y++)
-                    for (int x = 0; x < xColumn; x++)
+                if (Use2Matrix)
+                {
+                    for (int y = 0; y < yRow; y++)
                     {
-                        int xLogic = (y % 2 == 0) ? (xColumn - 1 - x) : x;
-                        autogen.pt2.Add(new Pattern { pos = { ID = GetID(xLogic, y), X = GetX(xLogic), Y = Math.Round(startPosY - (y * PitchY), 3) } });
+                        int yLogic = (yRow - 1) - y; // đi từ dưới lên
+                        // ---- Matrix trái ----
+                        for (int x = 0; x < halfCol; x++)
+                        {
+                            int xLogic = (yLogic % 2 == 0) ? x : (halfCol - 1 - x);
+                            autogen.pt2.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X = GetX(x), Y = Math.Round(startPosY + yLogic * PitchY, 3) } });
+                        }
+                        // ---- Matrix phải ----
+                        for (int x = halfCol; x < xColumn; x++)
+                        {
+                            int localX = x - halfCol;
+                            int colsM2 = xColumn - halfCol;
+                            int xLogic = halfCol + ((yLogic % 2 == 0) ? localX : (colsM2 - 1 - localX));
+                            autogen.pt2.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X = GetX(x), Y = Math.Round(startPosY + yLogic * PitchY, 3) } });
+                        }
                     }
+                }
+                else
+                {
+                    for (int y = 0; y < yRow; y++)
+                    {
+                        int yLogic = (yRow - 1) - y; // dưới lên
+                        for (int x = 0; x < xColumn; x++)
+                        {
+                            int xLogic = (yLogic % 2 == 0) ? x : (xColumn - 1 - x);
+                            autogen.pt2.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X = GetX(x), Y = Math.Round(startPosY + yLogic * PitchY, 3) } });
+                        }
+                    }
+                }
                 autogen.pt2 = autogen.pt2.OrderBy(p => p.pos.ID).ToList();
             }
             if (idPatern == 3)
-            { // Trái-Dưới bắt đầu, Z-ngang
+            {
                 autogen.pt3 = new List<Pattern>();
-                for (int y = 0; y < yRow; y++)
-                    for (int x = 0; x < xColumn; x++)
+                if (Use2Matrix)
+                {
+                    for (int y = 0; y < yRow; y++)
                     {
-                        int yLogic = yRow - 1 - y;
-                        int xLogic = (y % 2 == 0) ? x : (xColumn - 1 - x);
-                        autogen.pt3.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X = GetX(xLogic), Y = Math.Round(startPosY - (yLogic * PitchY), 3) } });
+                        int yLogic = (yRow - 1) - y; // đi từ dưới lên
+                        // ---- Matrix trái ----
+                        for (int x = 0; x < halfCol; x++)
+                        {
+                            int xLogic = (yLogic % 2 == 0) ? x : (halfCol - 1 - x);
+                            autogen.pt3.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X = GetX(x), Y = Math.Round(startPosY + yLogic * PitchY, 3) } });
+                        }
+                        // ---- Matrix phải ----
+                        for (int x = halfCol; x < xColumn; x++)
+                        {
+                            int localX = x - halfCol;
+                            int colsM2 = xColumn - halfCol;
+                            int xLogic = halfCol + ((yLogic % 2 == 0) ? localX : (colsM2 - 1 - localX));
+                            autogen.pt3.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X = GetX(x), Y = Math.Round(startPosY + yLogic * PitchY, 3) } });
+                        }
                     }
+                }
+                else
+                {
+                    for (int y = 0; y < yRow; y++)
+                    {
+                        int yLogic = (yRow - 1) - y; // dưới lên
+                        for (int x = 0; x < xColumn; x++)
+                        {
+                            int xLogic = (yLogic % 2 == 0) ? x : (xColumn - 1 - x);
+                            autogen.pt3.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X = GetX(x), Y = Math.Round(startPosY + yLogic * PitchY, 3) } });
+                        }
+                    }
+                }
                 autogen.pt3 = autogen.pt3.OrderBy(p => p.pos.ID).ToList();
             }
             if (idPatern == 4)
-            { // Phải-Dưới bắt đầu, Z-ngang
+            {
                 autogen.pt4 = new List<Pattern>();
-                for (int y = 0; y < yRow; y++)
-                    for (int x = 0; x < xColumn; x++)
+                if (Use2Matrix)
+                {
+                    for (int y = 0; y < yRow; y++)
                     {
-                        int yLogic = yRow - 1 - y;
-                        int xLogic = (y % 2 == 0) ? (xColumn - 1 - x) : x;
-                        autogen.pt4.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X = GetX(xLogic), Y = Math.Round(startPosY - (yLogic * PitchY), 3) } });
+                        int yLogic = (yRow - 1) - y; // đi từ dưới lên
+                        // ---- Matrix trái ----
+                        for (int x = 0; x < halfCol; x++)
+                        {
+                            int xLogic = (yLogic % 2 == 0) ? x : (halfCol - 1 - x);
+                            autogen.pt4.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X = GetX(x), Y = Math.Round(startPosY + yLogic * PitchY, 3) } });
+                        }
+                        // ---- Matrix phải ----
+                        for (int x = halfCol; x < xColumn; x++)
+                        {
+                            int localX = x - halfCol;
+                            int colsM2 = xColumn - halfCol;
+                            int xLogic = halfCol + ((yLogic % 2 == 0) ? localX : (colsM2 - 1 - localX));
+                            autogen.pt4.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X = GetX(x), Y = Math.Round(startPosY + yLogic * PitchY, 3) } });
+                        }
                     }
+                }
+                else
+                {
+                    for (int y = 0; y < yRow; y++)
+                    {
+                        int yLogic = (yRow - 1) - y; // dưới lên
+                        for (int x = 0; x < xColumn; x++)
+                        {
+                            int xLogic = (yLogic % 2 == 0) ? x : (xColumn - 1 - x);
+                            autogen.pt4.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X = GetX(x), Y = Math.Round(startPosY + yLogic * PitchY, 3) } });
+                        }
+                    }
+                }
                 autogen.pt4 = autogen.pt4.OrderBy(p => p.pos.ID).ToList();
             }
 
             // --- GROUP 2: SNAKE VERTICAL (5-8) - Đi kiểu chữ S dọc ---
             if (idPatern == 5)
-            { // Trái-Trên bắt đầu, Z-dọc
+            {
                 autogen.pt5 = new List<Pattern>();
-                for (int x = 0; x < xColumn; x++)
-                    for (int y = 0; y < yRow; y++)
+                for (int y = 0; y < yRow; y++)
+                {
+                    int yPhys = y; // y vật lý (0 = dưới)
+                    for (int x = 0; x < xColumn; x++)
                     {
-                        int yLogic = (x % 2 == 0) ? y : (yRow - 1 - y);
-                        autogen.pt5.Add(new Pattern { pos = { ID = GetID(x, yLogic), X = GetX(x), Y = Math.Round(startPosY - (yLogic * PitchY), 3) } });
+                        int id;
+                        if (Use2Matrix)
+                        {
+                            if (x < halfCol)
+                            {
+                                // ===== Matrix trái =====
+                                int baseId = x * yRow;
+                                id = (x % 2 == 0) ? baseId + yPhys + 1 : baseId + (yRow - yPhys);
+                            }
+                            else
+                            {
+                                // ===== Matrix phải =====
+                                int localX = x - halfCol;
+                                int baseOffset = halfCol * yRow;
+                                int baseId = baseOffset + localX * yRow;
+                                id = (localX % 2 == 0) ? baseId + yPhys + 1 : baseId + (yRow - yPhys);
+                            }
+                        }
+                        else
+                        {
+                            // ===== 1 matrix =====
+                            int baseId = x * yRow;
+                            id = (x % 2 == 0) ? baseId + yPhys + 1 : baseId + (yRow - yPhys);
+                        }
+                        autogen.pt5.Add(new Pattern { pos = {  ID = id, X  = GetX(x), Y  = Math.Round(startPosY + yPhys * PitchY, 3) } });
                     }
+                }
                 autogen.pt5 = autogen.pt5.OrderBy(p => p.pos.ID).ToList();
             }
             if (idPatern == 6)
-            { // Trái-Dưới bắt đầu, Z-dọc
+            {
                 autogen.pt6 = new List<Pattern>();
-                for (int x = 0; x < xColumn; x++)
-                    for (int y = 0; y < yRow; y++)
+                for (int y = 0; y < yRow; y++)
+                {
+                    int yPhys = y; // y vật lý (0 = dưới)
+                    for (int x = 0; x < xColumn; x++)
                     {
-                        int yLogic = (x % 2 == 0) ? (yRow - 1 - y) : y;
-                        autogen.pt6.Add(new Pattern { pos = { ID = GetID(x, yLogic), X = GetX(x), Y = Math.Round(startPosY - (yLogic * PitchY), 3) } });
+                        int id;
+                        if (Use2Matrix)
+                        {
+                            if (x < halfCol)
+                            {
+                                // ===== Matrix trái =====
+                                int baseId = x * yRow;
+                                id = (x % 2 == 0) ? baseId + yPhys + 1 : baseId + (yRow - yPhys);
+                            }
+                            else
+                            {
+                                // ===== Matrix phải =====
+                                int localX = x - halfCol;
+                                int baseOffset = halfCol * yRow;
+                                int baseId = baseOffset + localX * yRow;
+                                id = (localX % 2 == 0) ? baseId + yPhys + 1 : baseId + (yRow - yPhys);
+                            }
+                        }
+                        else
+                        {
+                            // ===== 1 matrix =====
+                            int baseId = x * yRow;
+                            id = (x % 2 == 0) ? baseId + yPhys + 1 : baseId + (yRow - yPhys);
+                        }
+                        autogen.pt6.Add(new Pattern { pos = { ID = id, X = GetX(x), Y = Math.Round(startPosY + yPhys * PitchY, 3) } });
                     }
+                }
                 autogen.pt6 = autogen.pt6.OrderBy(p => p.pos.ID).ToList();
             }
             if (idPatern == 7)
-            { // Phải-Trên bắt đầu, Z-dọc
+            {
                 autogen.pt7 = new List<Pattern>();
-                for (int x = 0; x < xColumn; x++)
-                    for (int y = 0; y < yRow; y++)
+                for (int y = 0; y < yRow; y++)
+                {
+                    int yPhys = y; // y vật lý (0 = dưới)
+                    for (int x = 0; x < xColumn; x++)
                     {
-                        int xIdx = xColumn - 1 - x;
-                        int yLogic = (x % 2 == 0) ? y : (yRow - 1 - y);
-                        autogen.pt7.Add(new Pattern { pos = { ID = GetID(xIdx, yLogic), X = GetX(xIdx), Y = Math.Round(startPosY - (yLogic * PitchY), 3) } });
+                        int id;
+                        if (Use2Matrix)
+                        {
+                            if (x < halfCol)
+                            {
+                                // ===== Matrix trái =====
+                                int baseId = x * yRow;
+                                id = (x % 2 == 0) ? baseId + yPhys + 1 : baseId + (yRow - yPhys);
+                            }
+                            else
+                            {
+                                // ===== Matrix phải =====
+                                int localX = x - halfCol;
+                                int baseOffset = halfCol * yRow;
+                                int baseId = baseOffset + localX * yRow;
+                                id = (localX % 2 == 0) ? baseId + yPhys + 1 : baseId + (yRow - yPhys);
+                            }
+                        }
+                        else
+                        {
+                            // ===== 1 matrix =====
+                            int baseId = x * yRow;
+                            id = (x % 2 == 0) ? baseId + yPhys + 1 : baseId + (yRow - yPhys);
+                        }
+                        autogen.pt7.Add(new Pattern { pos = { ID = id, X = GetX(x), Y = Math.Round(startPosY + yPhys * PitchY, 3) } });
                     }
+                }
                 autogen.pt7 = autogen.pt7.OrderBy(p => p.pos.ID).ToList();
             }
             if (idPatern == 8)
-            { // Phải-Dưới bắt đầu, Z-dọc
+            {
                 autogen.pt8 = new List<Pattern>();
-                for (int x = 0; x < xColumn; x++)
-                    for (int y = 0; y < yRow; y++)
+                for (int y = 0; y < yRow; y++)
+                {
+                    int yPhys = y; // y vật lý (0 = dưới)
+                    for (int x = 0; x < xColumn; x++)
                     {
-                        int xIdx = xColumn - 1 - x;
-                        int yLogic = (x % 2 == 0) ? (yRow - 1 - y) : y;
-                        autogen.pt8.Add(new Pattern { pos = { ID = GetID(xIdx, yLogic), X = GetX(xIdx), Y = Math.Round(startPosY - (yLogic * PitchY), 3) } });
+                        int id;
+                        if (Use2Matrix)
+                        {
+                            if (x < halfCol)
+                            {
+                                // ===== Matrix trái =====
+                                int baseId = x * yRow;
+                                id = (x % 2 == 0) ? baseId + yPhys + 1 : baseId + (yRow - yPhys);
+                            }
+                            else
+                            {
+                                // ===== Matrix phải =====
+                                int localX = x - halfCol;
+                                int baseOffset = halfCol * yRow;
+                                int baseId = baseOffset + localX * yRow;
+                                id = (localX % 2 == 0) ? baseId + yPhys + 1 : baseId + (yRow - yPhys);
+                            }
+                        }
+                        else
+                        {
+                            // ===== 1 matrix =====
+                            int baseId = x * yRow;
+                            id = (x % 2 == 0) ? baseId + yPhys + 1 : baseId + (yRow - yPhys);
+                        }
+                        autogen.pt8.Add(new Pattern { pos = { ID = id, X = GetX(x), Y = Math.Round(startPosY + yPhys * PitchY, 3) } });
                     }
+                }
                 autogen.pt8 = autogen.pt8.OrderBy(p => p.pos.ID).ToList();
             }
 
