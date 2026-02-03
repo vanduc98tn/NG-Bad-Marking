@@ -780,7 +780,7 @@ namespace GUI
              * idPatern : No. ID Patern.
              * PitchX : Distance in the X direction.
              * PitchY : Distance in the Y direction.
-             * startPosX : Position start point X .
+             * startPosX : Position start point X.
              * startPosY : Position start point Y.
              * xColumn : Number col in the X direction.
              * yRow : Number row in the Y direction.
@@ -2292,7 +2292,7 @@ namespace GUI
                         for (int x = 0; x < halfCol; x++)
                         {
                             int xLogic = (yLogic % 2 == 0) ? x : (halfCol - 1 - x);
-                            autogen.pt1.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X  = GetX(x), Y = Math.Round(startPosY + yLogic * PitchY, 3) } });
+                            autogen.pt1.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X  = GetX(x), Y = Math.Round(startPosY - yLogic * PitchY, 3) } });
                         }
                         // ---- Matrix phải ----
                         for (int x = halfCol; x < xColumn; x++)
@@ -2300,7 +2300,7 @@ namespace GUI
                             int localX = x - halfCol;
                             int colsM2 = xColumn - halfCol;
                             int xLogic = halfCol + ((yLogic % 2 == 0) ? localX : (colsM2 - 1 - localX));
-                            autogen.pt1.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X  = GetX(x), Y = Math.Round(startPosY + yLogic * PitchY, 3) } });
+                            autogen.pt1.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X  = GetX(x), Y = Math.Round(startPosY - yLogic * PitchY, 3) } });
                         }
                     }
                 }
@@ -2312,7 +2312,7 @@ namespace GUI
                         for (int x = 0; x < xColumn; x++)
                         {
                             int xLogic = (yLogic % 2 == 0) ? x : (xColumn - 1 - x);
-                            autogen.pt1.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X  = GetX(x), Y  = Math.Round(startPosY + yLogic * PitchY, 3) } });
+                            autogen.pt1.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X  = GetX(x), Y  = Math.Round(startPosY - yLogic * PitchY, 3) } });
                         }
                     }
                 }
@@ -2330,7 +2330,7 @@ namespace GUI
                         for (int x = 0; x < halfCol; x++)
                         {
                             int xLogic = (yLogic % 2 == 0) ? x : (halfCol - 1 - x);
-                            autogen.pt2.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X = GetX(x), Y = Math.Round(startPosY + yLogic * PitchY, 3) } });
+                            autogen.pt2.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X = GetX(x), Y = Math.Round(startPosY - yLogic * PitchY, 3) } });
                         }
                         // ---- Matrix phải ----
                         for (int x = halfCol; x < xColumn; x++)
@@ -2338,7 +2338,7 @@ namespace GUI
                             int localX = x - halfCol;
                             int colsM2 = xColumn - halfCol;
                             int xLogic = halfCol + ((yLogic % 2 == 0) ? localX : (colsM2 - 1 - localX));
-                            autogen.pt2.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X = GetX(x), Y = Math.Round(startPosY + yLogic * PitchY, 3) } });
+                            autogen.pt2.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X = GetX(x), Y = Math.Round(startPosY - yLogic * PitchY, 3) } });
                         }
                     }
                 }
@@ -2350,7 +2350,7 @@ namespace GUI
                         for (int x = 0; x < xColumn; x++)
                         {
                             int xLogic = (yLogic % 2 == 0) ? x : (xColumn - 1 - x);
-                            autogen.pt2.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X = GetX(x), Y = Math.Round(startPosY + yLogic * PitchY, 3) } });
+                            autogen.pt2.Add(new Pattern { pos = { ID = GetID(xLogic, yLogic), X = GetX(x), Y = Math.Round(startPosY - yLogic * PitchY, 3) } });
                         }
                     }
                 }
@@ -2466,7 +2466,7 @@ namespace GUI
                             int baseId = x * yRow;
                             id = (x % 2 == 0) ? baseId + yPhys + 1 : baseId + (yRow - yPhys);
                         }
-                        autogen.pt5.Add(new Pattern { pos = {  ID = id, X  = GetX(x), Y  = Math.Round(startPosY + yPhys * PitchY, 3) } });
+                        autogen.pt5.Add(new Pattern { pos = {  ID = id, X  = GetX(x), Y  = Math.Round(startPosY - yPhys * PitchY, 3) } });
                     }
                 }
                 autogen.pt5 = autogen.pt5.OrderBy(p => p.pos.ID).ToList();
@@ -2577,7 +2577,7 @@ namespace GUI
                             int baseId = x * yRow;
                             id = (x % 2 == 0) ? baseId + yPhys + 1 : baseId + (yRow - yPhys);
                         }
-                        autogen.pt8.Add(new Pattern { pos = { ID = id, X = GetX(x), Y = Math.Round(startPosY + yPhys * PitchY, 3) } });
+                        autogen.pt8.Add(new Pattern { pos = { ID = id, X = GetX(x), Y = Math.Round(startPosY - yPhys * PitchY, 3) } });
                     }
                 }
                 autogen.pt8 = autogen.pt8.OrderBy(p => p.pos.ID).ToList();
@@ -2674,7 +2674,6 @@ namespace GUI
                 autogen.pt16 = autogen.pt16.OrderBy(p => p.pos.ID).ToList();
             }
         }
-
         private void EditPositon(int Patern, int id, double valuePosX, double valuePosY)
         {
             var autogen = this.modelSetting.Teaching;
